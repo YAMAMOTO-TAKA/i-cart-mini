@@ -1,0 +1,13 @@
+<launch>
+ <node pkg="rt_usb_9axisimu_driver" type="rt_usb_9axisimu_driver" name="imu_node">
+ </node>
+ 
+ <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_filter_node">
+      <param name="use_magnetic_field_msg" value="true" />
+      <param name="publish_debug_topics" value="true" />
+      <param name="world_frame" type="str" value="nwu" />
+ </node>
+
+ <node pkg="tf" type="static_transform_publisher" name="imu_link" args="0 0 0.32 0 0 0 base_link imu 100" />
+
+</launch>

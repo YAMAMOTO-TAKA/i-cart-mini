@@ -1,0 +1,16 @@
+<launch>
+
+    <node pkg="gmapping" name="gmapping" type="slam_gmapping" output="screen">
+        <remap from="scan" to="scan"/>
+        <param name="map_update_interval" value="0.5"/>
+        <param name="angularUpdate" value="0.1"/>
+        <param name="linearUpdate" value="0.1"/>
+        <param name="maxURange" value="50"/>
+        <param name="maxRange" value="105"/>
+	<param name="delta" value="0.03"/>
+	<param name="particles" value="50"/>
+        <param name="stt" value="0.25"/>
+
+    </node>
+    
+</launch>

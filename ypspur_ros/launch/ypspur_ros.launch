@@ -1,0 +1,10 @@
+<launch>
+  <arg name="default_port" default="/dev/serial/by-id/usb-T-frog_project_T-frog_Driver-if00" />
+  <arg name="default_param" default="$(find ypspur_ros)/param/icart-mini.param" />
+
+    <node pkg="ypspur_ros" type="ypspur_ros" name="ypspur_ros">
+        <param name="port" value="/dev/ttyACM0" />
+        <param name="param_file" value="$(arg default_param)" />
+	<remap from= "ypspur_ros/cmd_vel" to= "cmd_vel"/>
+    </node>
+</launch>
